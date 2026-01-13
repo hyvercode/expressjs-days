@@ -1,4 +1,5 @@
-var healthRouter = require('./src/routes/health');
+const healthRouter = require('./src/routes/health');
+const productRouter = require('./src/routes/product');
 
 const express = require('express');
 const app = express();
@@ -11,7 +12,10 @@ app.use(function(err, req, res, next) {
 
 // Health check route
 app.use('/api/health', healthRouter);
+// Product routes
+app.use('/api/products', productRouter);
 
+// Basic route
 app.get('/', (req, res) => {
   res.send('Hello Express!');
 });
